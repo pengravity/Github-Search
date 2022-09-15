@@ -1,10 +1,12 @@
 import React from 'react';
+import UserList from '../components/users/UserList';
 
 function Home() {
   return (
-    <div>
-      <h2 className='text-5xl'>Hi there!</h2>
-    </div>
+    <>
+      {/* search */}
+      <UserList />
+    </>
   );
 }
 
