@@ -4,7 +4,7 @@ import User from './User';
 import GithubContext from '../../context/GithubContext';
 
 function UserList() {
-  const { users, loading, fetchUsers } = useContext(GithubContext);
+  const { users, loading } = useContext(GithubContext);
 
   if (!loading) {
     return (
