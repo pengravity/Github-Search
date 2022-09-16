@@ -7,6 +7,7 @@ import NotFound from './pages/NotFound';
 import About from './pages/About';
 import { GithubProvider } from './context/GithubContext';
 import { AlertProvider } from './context/AlertContext';
+import Alert from './components/layout/Alert';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Navbar />
 
             <main className='container mx-auto px-4 pb-12'>
+              <Alert />
               <Routes>
                 <Route path='/' element={<Home />} />
                 <Route path='/about' element={<About />} />
