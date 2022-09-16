@@ -1,14 +1,10 @@
 import React from 'react';
-import { useEffect, useContext } from 'react';
+import { useContext } from 'react';
 import User from './User';
 import GithubContext from '../../context/GithubContext';
 
 function UserList() {
   const { users, loading, fetchUsers } = useContext(GithubContext);
-
-  useEffect(() => {
-    fetchUsers();
-  }, []);
 
   if (!loading) {
     return (
