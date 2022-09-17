@@ -16,7 +16,7 @@ function User({ user }) {
           <h2 className='card-title'>{user.login}</h2>
           <Link
             className='text-base-content text-opacity-35'
-            to={`/users/${user.login}`}
+            to={`/user/${user.login}`}
           >
             View Profile
           </Link>
