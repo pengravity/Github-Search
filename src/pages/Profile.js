@@ -3,13 +3,16 @@ import { useEffect, useContext } from 'react';
 import { useParams, Link } from 'react-router-dom';
 
 import GithubContext from '../context/GithubContext';
+import RepoList from '../components/users/RepoList';
 
 function Profile() {
-  const { getUser, user, loading } = useContext(GithubContext);
+  const { getUser, user, loading, getUserRepos, repos } =
+    useContext(GithubContext);
 
   const params = useParams();
   useEffect(() => {
     getUser(params.login);
+    getUserRepos(params.login);
   }, []);
 
   const {
@@ -158,6 +161,7 @@ function Profile() {
             </div>
           </div>
         </div>
+        <RepoList repos={repos} />
       </div>
     </>
   );
