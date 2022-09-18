@@ -4,7 +4,7 @@ import { useParams, Link } from 'react-router-dom';
 
 import GithubContext from '../context/GithubContext';
 import RepoList from '../components/users/RepoList';
-import { getUser, getUserRepos } from '../context/GithubActions';
+import { getUserAndRepos } from '../context/GithubActions';
 
 function Profile() {
   const { user, loading, repos, dispatch } = useContext(GithubContext);
@@ -13,11 +13,8 @@ function Profile() {
   useEffect(() => {
     dispatch({ type: 'SET_LOADING' });
     const getUserData = async () => {
-      const userData = await getUser(params.login);
-      dispatch({ type: 'GET_USER', payload: userData });
-
-      const userRepos = await getUserRepos(params.login);
-      dispatch({ type: 'GET_REPOS', payload: userRepos });
+      const userData = await getUserAndRepos(params.login);
+      dispatch({ type: 'GET_USER_AND_REPOS', payload: userData });
     };
 
     getUserData();
